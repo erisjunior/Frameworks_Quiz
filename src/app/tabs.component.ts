@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import tabsData from './data/tabs';
+
+export interface ITab {
+  id: number;
+  title: string;
+  text: string;
+}
 
 @Component({
   selector: 'app-tabs',
@@ -45,6 +51,6 @@ import tabsData from './data/tabs';
   `]
 })
 export class TabsComponent {
-  tabs = tabsData;
+  @Input() tabs: ITab[] = tabsData;
   currentTab = 0;
 }
